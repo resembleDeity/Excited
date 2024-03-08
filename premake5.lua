@@ -1,0 +1,111 @@
+workspace "Excited"
+	architecture "x64"
+
+	configurations
+	{
+		"Debug",
+		"Release",
+		"Dist"
+	}
+
+
+
+OutputDir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
+
+
+
+project "Excited"
+	location "Excited"
+	kind "SharedLib"
+	language "C++"
+
+	targetdir ("bin/" .. OutputDir .. "%{prj.name}")
+	objdir ("bin-int/" .. OutputDir .. "%{prj.name}")
+
+	files
+	{
+		"%{prj.name}/Src/**.h",
+		"%{prj.name}/Src/**.cpp"
+	}
+
+	includedirs
+	{
+		"%{prj.name}/Vendor/SpdLog/include"
+	}
+
+	filter "system:windows"
+		cppdialect "C++17"
+		staticruntime "On"
+		systemversion "latest"
+
+	defines
+	{
+		"EXCITED_PLATFORM_WINDOWS",
+		"EXCITED_BUILD_DLL"
+	}
+
+	postbuildcommands
+	{
+		("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. OutputDir .. "Examples")
+	}
+
+	filter "configurations:Debug"
+		defines "EXCITED_DEBUG"
+		symbols "On"
+
+	filter "configurations:Release"
+		defines "EXCITED_RELEASE"
+		optimize "On"
+
+	filter "configurations:Dist"
+		defines "EXCITED_DIST"
+		optimize "On"
+
+
+
+project "Examples"
+	location "Examples"
+	kind "ConsoleApp"
+	language "C++"
+
+	targetdir ("bin/" .. OutputDir .. "%{prj.name}")
+	objdir ("bin-int/" .. OutputDir .. "%{prj.name}")
+
+	files
+	{
+		"%{prj.name}/Src/**.h",
+		"%{prj.name}/Src/**.cpp"
+	}
+
+	includedirs
+	{
+		"Excited/Vendor/SpdLog/include",
+		"Excited/Src"
+	}
+
+	links
+	{
+		"Excited"
+	}
+
+	filter "system:windows"
+		cppdialect "C++17"
+		staticruntime "On"
+		systemversion "latest"
+
+	defines
+	{
+		"EXCITED_PLATFORM_WINDOWS"
+	}
+
+	filter "configurations:Debug"
+		defines "EXCITED_DEBUG"
+		symbols "On"
+
+	filter "configurations:Release"
+		defines "EXCITED_RELEASE"
+		optimize "On"
+
+	filter "configurations:Dist"
+		defines "EXCITED_DIST"
+		optimize "On"
