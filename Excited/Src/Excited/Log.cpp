@@ -16,5 +16,6 @@ namespace Excited
 		CoreLogger->set_level(spdlog::level::trace);
 
 		ClientLogger = spdlog::stdout_color_mt("APPLICATION");
+		ClientLogger->set_level(spdlog::level::trace);
 	}
 }
