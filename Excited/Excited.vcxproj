@@ -57,6 +57,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)EXCITED_PLATFORM_WINDOWS;EXCITED_PLATFORM_WINDOWS;EXCITED_BUILD_DLL;;EXCITED_PLATFORM_WINDOWS</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)Excited\Vendor\SpdLog\include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -71,6 +72,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)EXCITED_PLATFORM_WINDOWS;EXCITED_PLATFORM_WINDOWS;EXCITED_BUILD_DLL;;EXCITED_PLATFORM_WINDOWS</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)Excited\Vendor\SpdLog\include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -80,12 +82,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Src\Excited\Log.h" />
     <ClInclude Include="Src\Excited.h" />
     <ClInclude Include="Src\Excited\Application.h" />
     <ClInclude Include="Src\Excited\Core.h" />
     <ClInclude Include="Src\Excited\EntryPoint.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Src\Excited\Log.cpp" />
     <ClCompile Include="Src\Excited\Application.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
