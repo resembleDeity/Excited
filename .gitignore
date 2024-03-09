@@ -1,10 +1,14 @@
 # Directories
 .vs/
+.idea/
 bin/
 bin-int/
 
 # Files
 *.user
+*.sln
+*.vcxproj
+*.filters
 
 !Vendor/
 !Vendor/Bin/

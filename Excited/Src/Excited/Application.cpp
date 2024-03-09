@@ -1,5 +1,8 @@
 #include "Application.h"
 
+#include "Excited/Log.h"
+#include "Excited/Events/ApplicationEvent.h"
+
 
 
 namespace Excited
@@ -16,9 +19,12 @@ namespace Excited
 
 	void KApplication::Run()
 	{
+		KWindowResizeEvent Event(1280, 720);
+		EXCITED_TRACE(Event);
+		
 		while (true)
 		{
-
+			
 		}
 	}
 }

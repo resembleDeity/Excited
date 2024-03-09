@@ -9,7 +9,7 @@ namespace Excited
 	public:
 
 		KApplication();
-		~KApplication();
+		virtual ~KApplication();
 
 		void Run();
 	};

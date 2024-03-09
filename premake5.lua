@@ -30,6 +30,7 @@ project "Excited"
 
 	includedirs
 	{
+		"%{prj.name}/Src",
 		"%{prj.name}/Vendor/SpdLog/include"
 	}
 
