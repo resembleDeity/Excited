@@ -22,6 +22,9 @@ project "Excited"
 	targetdir ("bin/" .. OutputDir .. "%{prj.name}")
 	objdir ("bin-int/" .. OutputDir .. "%{prj.name}")
 
+    pchheader "Excitedpch.h"
+    pchsource "Excited/Src/Excitedpch.cpp"
+
 	files
 	{
 		"%{prj.name}/Src/**.h",

@@ -2,9 +2,6 @@
 
 #include "Excited/Core.h"
 
-#include <string>
-#include <functional>
-
 
 
 namespace Excited
