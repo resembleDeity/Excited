@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Core.h"
+#include "Excited/Events/ApplicationEvent.h"
 #include "Window.h"
 
 namespace Excited
@@ -14,6 +15,12 @@ namespace Excited
 
 		void Run();
 
+		void OnEvent(KEvent& InEvent);
+
+	private:
+
+		bool OnWindowClose(KWindowCloseEvent& InEvent);
+		
 	private:
 
 		std::unique_ptr<KWindow> Window;

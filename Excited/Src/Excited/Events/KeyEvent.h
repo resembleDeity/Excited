@@ -42,7 +42,7 @@ namespace Excited
 		virtual std::string ToString() const override
 		{
 			std::stringstream StringStream;
-			StringStream << "Key Pressed Event: " << KeyCode << "(" << RepeatCount << "repeats)";
+			StringStream << "Key Pressed Event: " << KeyCode << " (" << RepeatCount << " repeats)";
 			return StringStream.str();
 		}
 		
@@ -51,13 +51,13 @@ namespace Excited
 		int RepeatCount;
 	};
 
-	class EXCITED_API KeyReleasedEvent : public KKeyEvent
+	class EXCITED_API KKeyReleasedEvent : public KKeyEvent
 	{
 	public:
 
 		EVENT_CLASS_TYPE(KeyReleased)
 		
-		KeyReleasedEvent(int InKeyCode)
+		KKeyReleasedEvent(int InKeyCode)
 			: KKeyEvent(InKeyCode)
 		{ }
 
