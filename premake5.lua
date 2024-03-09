@@ -12,6 +12,11 @@ workspace "Excited"
 
 OutputDir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+IncludeDir = { }
+IncludeDir["GLFW"] = "Excited/Vendor/GLFW/include"
+
+include "Excited/Vendor/GLFW"
+
 
 
 project "Excited"
@@ -34,7 +39,14 @@ project "Excited"
 	includedirs
 	{
 		"%{prj.name}/Src",
-		"%{prj.name}/Vendor/SpdLog/include"
+		"%{prj.name}/Vendor/SpdLog/include",
+		"%{IncludeDir.GLFW}"
+	}
+
+	links
+	{
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"

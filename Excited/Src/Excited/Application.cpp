@@ -1,8 +1,10 @@
 #include "Excitedpch.h"
 #include "Application.h"
 
-#include "Excited/Log.h"
 #include "Excited/Events/ApplicationEvent.h"
+#include "Excited/Log.h"
+
+#include <GLFW/glfw3.h>
 
 
 
@@ -10,6 +12,7 @@ namespace Excited
 {
 	KApplication::KApplication()
 	{
+		Window = std::unique_ptr<KWindow>(KWindow::Create());
 	}
 
 	KApplication::~KApplication()
@@ -20,12 +23,12 @@ namespace Excited
 
 	void KApplication::Run()
 	{
-		KWindowResizeEvent Event(1280, 720);
-		EXCITED_TRACE(Event);
 		
-		while (true)
+		while (bRunning)
 		{
-			
+			glClearColor(1, 0, 1, 1);
+			glClear(GL_COLOR_BUFFER_BIT);
+			Window->OnUpdate();
 		}
 	}
 }

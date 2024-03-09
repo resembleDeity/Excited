@@ -1,3 +1,6 @@
 [submodule "Excited/Vendor/SpdLog"]
 	path = Excited/Vendor/SpdLog
 	url = https://github.com/gabime/spdlog
+[submodule "Excited/Vendor/GLFW"]
+	path = Excited/Vendor/GLFW
+	url = https://github.com/resembleDeity/GLFW

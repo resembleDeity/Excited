@@ -12,6 +12,8 @@
 #include <unordered_map>
 #include <unordered_set>
 
+#include "Excited/Log.h"
+
 #ifdef EXCITED_PLATFORM_WINDOWS
     #include <Windows.h>
 #endif
