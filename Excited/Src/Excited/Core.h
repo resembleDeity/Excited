@@ -19,3 +19,5 @@
 #endif
 
 #define BIT(x) (1 << x)
+
+#define EXCITED_BIND_EVENT_FN(Function) std::bind(&Function, this, std::placeholders::_1)

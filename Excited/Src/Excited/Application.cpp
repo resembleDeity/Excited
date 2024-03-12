@@ -8,11 +8,15 @@
 
 namespace Excited
 {
-#define BIND_EVENT_FN(x) std::bind(&KApplication::x, this, std::placeholders::_1)
+	KApplication* KApplication::Instance = nullptr;
+	
 	KApplication::KApplication()
 	{
+		EXCITED_CORE_ASSERT(!Instance, "Application already exists!");
+		Instance = this;
+		
 		Window = std::unique_ptr<KWindow>(KWindow::Create());
-		Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
+		Window->SetEventCallback(EXCITED_BIND_EVENT_FN(KApplication::OnEvent));
 	}
 
 	KApplication::~KApplication()
@@ -22,17 +26,19 @@ namespace Excited
 	void KApplication::PushLayer(KLayer* Layer)
 	{
 		LayerStack.PushLayer(Layer);
+		Layer->OnAttach();
 	}
 
 	void KApplication::PushOverlay(KLayer* Overlay)
 	{
 		LayerStack.PushOverlay(Overlay);
+		Overlay->OnAttach();
 	}
 
 	void KApplication::OnEvent(KEvent& InEvent)
 	{
 		TEventDispatcher Dispatcher(InEvent);
-		Dispatcher.Dispatch<KWindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
+		Dispatcher.Dispatch<KWindowCloseEvent>(EXCITED_BIND_EVENT_FN(KApplication::OnWindowClose));
 
 		for (auto It = LayerStack.end(); It != LayerStack.begin(); )
 		{

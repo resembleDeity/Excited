@@ -70,4 +70,24 @@ namespace Excited
 			return StringStream.str();
 		}
 	};
+
+	class EXCITED_API KKeyTypedEvent : public KKeyEvent
+	{
+	public:
+
+		EVENT_CLASS_TYPE(KeyTyped)
+
+		KKeyTypedEvent(int InKeyCode)
+			: KKeyEvent(InKeyCode)
+		{ }
+
+
+		
+		virtual std::string ToString() const override
+		{
+			std::stringstream StringStream;
+			StringStream << "Key Typed Event: " << KeyCode;
+			return StringStream.str();
+		}
+	};
 }

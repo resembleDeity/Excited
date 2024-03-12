@@ -108,6 +108,14 @@ namespace Excited
             }
         });
 
+        glfwSetCharCallback(Window, [](GLFWwindow* InWindow, unsigned int InKeycode)
+        {
+            FWindowData& Data = *(FWindowData*)glfwGetWindowUserPointer(InWindow);
+            
+            KKeyTypedEvent Event(InKeycode);
+            Data.EventCallback(Event);
+        });
+
         glfwSetMouseButtonCallback(Window, [](GLFWwindow* InWindow, int InButton, int InAction, int InMods)
         {
             FWindowData& Data = *(FWindowData*)glfwGetWindowUserPointer(InWindow);

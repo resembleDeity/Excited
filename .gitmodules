@@ -4,3 +4,6 @@
 [submodule "Excited/Vendor/GLFW"]
 	path = Excited/Vendor/GLFW
 	url = https://github.com/resembleDeity/GLFW
+[submodule "Excited/Vendor/imgui"]
+	path = Excited/Vendor/imgui
+	url = https://github.com/resembleDeity/imgui

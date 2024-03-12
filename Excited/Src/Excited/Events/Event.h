@@ -22,6 +22,7 @@ namespace Excited
 
 		KeyPressed,
 		KeyReleased,
+		KeyTyped,
 
 		MouseButtonPressed,
 		MouseButtonReleased,

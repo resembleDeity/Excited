@@ -29,6 +29,7 @@ public:
 	KExamples()
 	{
 		PushLayer(new KExamplesLayer());
+		PushOverlay(new Excited::KImGuiLayer());
 	}
 
 	~KExamples()

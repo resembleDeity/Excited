@@ -22,17 +22,23 @@ namespace Excited
 		void PushLayer(KLayer* Layer);
 		void PushOverlay(KLayer* Overlay);
 
+		inline KWindow& GetWindow() { return *Window; }
+
+		inline static KApplication& GetApplication() { return *Instance; }
+		
 	private:
 
 		bool OnWindowClose(KWindowCloseEvent& InEvent);
 		
 	private:
 
+		static KApplication* Instance;
+		
+		bool bRunning = true;
+
 		std::unique_ptr<KWindow> Window;
 
 		KLayerStack LayerStack;
-		
-		bool bRunning = true;
 	};
 
 	// To be defined int CLIENT
