@@ -5,6 +5,8 @@
 #include "Excited/Events/MouseEvent.h"
 #include "Excited/Events/KeyEvent.h"
 
+#include <glad/glad.h>
+
 
 
 namespace Excited
@@ -51,6 +53,10 @@ namespace Excited
 
         Window = glfwCreateWindow((int)InProps.Width, (int)InProps.Height, Data.Title.c_str(), nullptr, nullptr);
         glfwMakeContextCurrent(Window);
+
+        int Status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+        EXCITED_CORE_ASSERT(Status, "Failed to initialize Glad!");
+
         glfwSetWindowUserPointer(Window, &Data);
         SetVSync(true);
 

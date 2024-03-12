@@ -14,8 +14,10 @@ OutputDir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = { }
 IncludeDir["GLFW"] = "Excited/Vendor/GLFW/include"
+IncludeDir["Glad"] = "Excited/Vendor/Glad/include"
 
 include "Excited/Vendor/GLFW"
+include "Excited/Vendor/Glad"
 
 
 
@@ -40,12 +42,14 @@ project "Excited"
 	{
 		"%{prj.name}/Src",
 		"%{prj.name}/Vendor/SpdLog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}"
 	}
 
 	links
 	{
 		"GLFW",
+	    "Glad",
 		"opengl32.lib"
 	}
 
@@ -57,7 +61,8 @@ project "Excited"
 	defines
 	{
 		"EXCITED_PLATFORM_WINDOWS",
-		"EXCITED_BUILD_DLL"
+		"EXCITED_BUILD_DLL",
+		"GLFW_INCLUDE_NONE"
 	}
 
 	postbuildcommands
