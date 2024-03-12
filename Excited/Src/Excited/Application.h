@@ -1,8 +1,10 @@
 #pragma once
 
 #include "Core.h"
-#include "Excited/Events/ApplicationEvent.h"
+
 #include "Window.h"
+#include "LayerStack.h"
+#include "Excited/Events/ApplicationEvent.h"
 
 namespace Excited
 {
@@ -17,6 +19,9 @@ namespace Excited
 
 		void OnEvent(KEvent& InEvent);
 
+		void PushLayer(KLayer* Layer);
+		void PushOverlay(KLayer* Overlay);
+
 	private:
 
 		bool OnWindowClose(KWindowCloseEvent& InEvent);
@@ -25,6 +30,8 @@ namespace Excited
 
 		std::unique_ptr<KWindow> Window;
 
+		KLayerStack LayerStack;
+		
 		bool bRunning = true;
 	};
 

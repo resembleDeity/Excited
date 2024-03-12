@@ -55,6 +55,7 @@ namespace Excited
 	class EXCITED_API KEvent
 	{
 		friend class TEventDispatcher;
+		friend class KApplication;
 	public:
 
 		virtual EEventType GetEventType() const = 0;

@@ -67,14 +67,17 @@ project "Excited"
 
 	filter "configurations:Debug"
 		defines "EXCITED_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "EXCITED_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "EXCITED_DIST"
+		buildoptions "/MD"
 		optimize "On"
 
 
@@ -116,12 +119,15 @@ project "Examples"
 
 	filter "configurations:Debug"
 		defines "EXCITED_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "EXCITED_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "EXCITED_DIST"
+		buildoptions "/MD"
 		optimize "On"
