@@ -41,6 +41,8 @@ namespace Excited
         virtual void SetVSync(bool Enabled) = 0;
         virtual bool IsVSync() const = 0;
 
+        virtual void* GetNativeWindow() const = 0;
+
         static KWindow* Create(const FWindowProps& InProps = FWindowProps());
     };
 }

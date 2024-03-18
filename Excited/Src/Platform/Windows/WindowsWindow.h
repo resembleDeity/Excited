@@ -23,6 +23,8 @@ namespace Excited
         virtual void SetVSync(bool Enabled) override;
         virtual bool IsVSync() const override;
 
+        inline virtual void* GetNativeWindow() const override { return Window; }
+
     private:
 
         virtual void Init(const FWindowProps& InProps);

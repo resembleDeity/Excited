@@ -10,6 +10,10 @@
 	#error Excited only support Windows!
 #endif
 
+#ifdef EXCITED_DEBUG
+	#define EXCITED_ENABLE_ASSERTS
+#endif
+
 #ifdef EXCITED_ENABLE_ASSERTS
 	#define EXCITED_ASSERT(x, ...) { if (!(x)) { EXCITED_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
 	#define EXCITED_CORE_ASSERT(x, ...) { if (!(x)) { EXCITED_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }

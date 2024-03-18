@@ -27,12 +27,13 @@ project "Excited"
 	location "Excited"
 	kind "SharedLib"
 	language "C++"
+	staticruntime "off"
 
-	targetdir ("bin/" .. OutputDir .. "%{prj.name}")
-	objdir ("bin-int/" .. OutputDir .. "%{prj.name}")
+	targetdir ("bin/" .. OutputDir .. "/%{prj.name}")
+	objdir ("bin-int/" .. OutputDir .. "/%{prj.name}")
 
-    pchheader "Excitedpch.h"
-    pchsource "Excited/Src/Excitedpch.cpp"
+	pchheader "Excitedpch.h"
+	pchsource "Excited/Src/Excitedpch.cpp"
 
 	files
 	{
@@ -52,14 +53,13 @@ project "Excited"
 	links
 	{
 		"GLFW",
-	    "Glad",
+		"Glad",
 		"imgui",
 		"opengl32.lib"
 	}
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 
 	defines
@@ -71,22 +71,22 @@ project "Excited"
 
 	postbuildcommands
 	{
-		("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. OutputDir .. "Examples")
+		("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. OutputDir .. "/Examples/\"")
 	}
 
 	filter "configurations:Debug"
 		defines "EXCITED_DEBUG"
-		buildoptions "/MDd"
+		runtime "Debug"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "EXCITED_RELEASE"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "EXCITED_DIST"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
 
 
@@ -95,9 +95,10 @@ project "Examples"
 	location "Examples"
 	kind "ConsoleApp"
 	language "C++"
+	staticruntime "off"
 
-	targetdir ("bin/" .. OutputDir .. "%{prj.name}")
-	objdir ("bin-int/" .. OutputDir .. "%{prj.name}")
+	targetdir ("bin/" .. OutputDir .. "/%{prj.name}")
+	objdir ("bin-int/" .. OutputDir .. "/%{prj.name}")
 
 	files
 	{
@@ -118,7 +119,6 @@ project "Examples"
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 
 	defines
@@ -128,15 +128,15 @@ project "Examples"
 
 	filter "configurations:Debug"
 		defines "EXCITED_DEBUG"
-		buildoptions "/MDd"
+		runtime "Debug"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "EXCITED_RELEASE"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "EXCITED_DIST"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
