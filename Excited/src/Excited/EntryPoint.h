@@ -2,15 +2,16 @@
 
 #pragma once
 
-#ifdef EXCITED_PLATFORM_WINDOWS
+#include "Core.h"
 
-#include <stdio.h>
+#ifdef EXCITED_PLATFORM_WINDOWS
 
 extern Excited::Application* Excited::CreateApplication();
 
 int main(int argc, char** argv)
 {
-	printf("Start Engine\n");
+	Excited::FLog::Init();
+
 	auto app = Excited::CreateApplication();
 	app->Run();
 	delete app;
