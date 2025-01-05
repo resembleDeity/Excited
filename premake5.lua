@@ -1,30 +1,25 @@
+include "./vendor/premake/SolutionItems.lua"
+include "Dependencies.lua"
+
 workspace "Excited"
-    architecture "x86_64"
-    startproject "Sandbox"
+	architecture "x86_64"
+	startproject "Excitedly"
 
-    configurations
-    {
-        "Debug",
-        "Release",
-        "Dist"
-    }
+	configurations { "Debug", "Release", "Dist" }
 
-    flags
-    {
-        "MultiProcessorCompile"
-    }
+	solutionitems { ".editorconfig" }
 
+	flags { "MultiProcessorCompile" }
 
 OutputDir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
-include "Dependencies.lua"
-
 group "Dependencies"
-    include "Excited/vendor/GLFW"
-    include "Excited/vendor/Glad"
-    include "Excited/vendor/imgui"
+	include "vendor/premake"
+	include "Excited/vendor/GLFW"
+	include "Excited/vendor/Glad"
+	include "Excited/vendor/imgui"
 group ""
 
-include "Excited"
 
-include "Sandbox"
+include "Excited"
+include "Excitedly"

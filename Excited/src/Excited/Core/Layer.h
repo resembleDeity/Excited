@@ -2,9 +2,7 @@
 
 #pragma once
 
-#include "Excited/Core.h"
-
-#include "Excited/Events/Event.h"
+#include "Excited/Core/Events/Event.h"
 
 namespace Excited
 {
@@ -18,6 +16,7 @@ namespace Excited
 		virtual void OnAttach() { }
 		virtual void OnDetach() { }
 		virtual void OnUpdate() { }
+		virtual void OnGuiRender() { }
 		virtual void OnEvent(IEvent& InEvent) { }
 
 		inline const std::string& GetName() const { return DebugName; }

@@ -3,6 +3,9 @@
 #pragma once
 
 #include "Event.h"
+#include "Excited/Core/KeyCodes.h"
+
+#include <sstream>
 
 namespace Excited
 {
@@ -12,15 +15,15 @@ namespace Excited
 
 		EVENT_CLASS_CATEGORY(EventCategoryKeyboard | EventCategoryInput)
 
-		inline int GetKeyCode() const { return KeyCode; }
+		inline EKeyCode GetKeyCode() const { return KeyCode; }
 
 	protected:
 
-		IKeyEvent(int InKeyCode)
+		IKeyEvent(EKeyCode InKeyCode)
 			: KeyCode(InKeyCode)
 		{ }
 
-		int KeyCode;
+		EKeyCode KeyCode;
 	};
 
 	class IKeyPressedEvent : public IKeyEvent
@@ -29,7 +32,7 @@ namespace Excited
 
 		EVENT_CLASS_TYPE(KeyPressed)
 
-		IKeyPressedEvent(int InKeyCode, int InRepeatCount)
+		IKeyPressedEvent(EKeyCode InKeyCode, int InRepeatCount)
 			: IKeyEvent(InKeyCode), RepeatCount(InRepeatCount)
 		{ }
 
@@ -53,7 +56,7 @@ namespace Excited
 
 		EVENT_CLASS_TYPE(KeyReleased)
 
-		IKeyReleasedEvent(int InKeyCode)
+		IKeyReleasedEvent(EKeyCode InKeyCode)
 			: IKeyEvent(InKeyCode)
 		{ }
 		
@@ -61,6 +64,24 @@ namespace Excited
 		{
 			std::stringstream StrStream;
 			StrStream << "[Event] Key Released: " << KeyCode;
+			return StrStream.str();
+		}
+	};
+
+	class IKeyTypedEvent : public IKeyEvent
+	{
+	public:
+
+		EVENT_CLASS_TYPE(KeyTyped)
+
+		IKeyTypedEvent(EKeyCode InKeyCode)
+			: IKeyEvent(InKeyCode)
+		{ }
+
+		virtual std::string ToString() const override
+		{
+			std::stringstream StrStream;
+			StrStream << "[Event] Key Typed: " << KeyCode;
 			return StrStream.str();
 		}
 	};

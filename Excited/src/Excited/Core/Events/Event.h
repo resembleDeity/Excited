@@ -2,33 +2,34 @@
 
 #pragma once
 
-#include "excitedpch.h"
+#include "Excited/Core/Core.h"
 
-#include "Excited/Core.h"
+#include <ostream>
+#include <string>
 
 namespace Excited
 {
 	enum class EEventType
 	{
 		None = 0,
-		WindowClose, WindowResize, WindowFocus, WindowLostFocus, WindowMoved,
+		WindowClose, WindowMinimize, WindowResize, WindowFocus, WindowLostFocus, WindowMoved,
 		AppTick, AppUpdate, AppRender,
-		KeyPressed, KeyReleased,
-		MouseButtonPressed, MouseButtonReleased, MouseMoved, MouseScrolled
+		KeyPressed, KeyReleased, KeyTyped,
+		MouseButtonPressed, MouseButtonReleased, MouseButtonDown, MouseMoved, MouseScrolled
 	};
 
 	enum EEventCategory
 	{
 		None = 0,
-		EventCategoryApplication	= Bit(0),
-		EventCategoryInput			= Bit(1),
-		EventCategoryKeyboard		= Bit(2),
-		EventCategoryMouse			= Bit(3),
-		EventCategoryMouseButton	= Bit(4)
+		EventCategoryApplication	= BIT(0),
+		EventCategoryInput			= BIT(1),
+		EventCategoryKeyboard		= BIT(2),
+		EventCategoryMouse			= BIT(3),
+		EventCategoryMouseButton	= BIT(4)
 	};
 
 #define EVENT_CLASS_TYPE(InType) \
-							static EEventType GetStaticType() { return EEventType::##InType; } \
+							static EEventType GetStaticType() { return EEventType::InType; } \
 							virtual EEventType GetEventType() const override { return GetStaticType(); } \
 							virtual const char* GetName() const override { return #InType; }
 
@@ -37,9 +38,9 @@ namespace Excited
 
 	class IEvent
 	{
-		friend class TEventDispatcher;
-
 	public:
+
+		virtual ~IEvent() { }
 
 		virtual EEventType GetEventType() const = 0;
 
@@ -49,13 +50,13 @@ namespace Excited
 
 		virtual std::string ToString() const { return GetName(); }
 
-		inline bool IsInCategory(EEventCategory InCategory) { return GetCategoryFlags() & InCategory; }
+		inline bool IsInCategory(EEventCategory InCategory) 
+		{
+			return GetCategoryFlags() & InCategory; 
+		}
 	
-		bool GetHandled() const { return Handled; }
-
-	protected:
-
 		bool Handled = false;
+		bool Synced = false;
 	};
 
 	class TEventDispatcher
@@ -72,7 +73,7 @@ namespace Excited
 		template <typename TEvent>
 		bool Dispatch(FRetEventCallback<TEvent> InFunc)
 		{
-			if (Event.GetEventType() == TEvent::GetStaticType())
+			if (Event.GetEventType() == TEvent::GetStaticType() && !Event.Handled)
 			{
 				Event.Handled = InFunc(*(TEvent*)&Event);
 				return true;
@@ -84,6 +85,11 @@ namespace Excited
 
 		IEvent& Event;
 	};
+
+	inline std::ostream& operator<<(std::ostream& InOS, const IEvent& InEvent)
+	{
+		return InOS << InEvent.ToString();
+	}
 
 	inline std::string format_as(const IEvent& InEvent)
 	{

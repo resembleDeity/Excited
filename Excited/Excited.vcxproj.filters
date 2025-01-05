@@ -1,92 +1,117 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="src">
-      <UniqueIdentifier>{2DAB880B-99B4-887C-2230-9F7C8E38947C}</UniqueIdentifier>
+    <Filter Include="Excited">
+      <UniqueIdentifier>{6B1158E2-D7F0-D67D-E008-62544C673DDF}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Excited">
-      <UniqueIdentifier>{821192EB-EEC6-0AE1-77BB-04B8E36F01E5}</UniqueIdentifier>
+    <Filter Include="Excited\Core">
+      <UniqueIdentifier>{A3D01BBE-8F33-AB62-38B9-E31824FB76E5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Excited\Events">
-      <UniqueIdentifier>{26B75817-129B-196D-7BFB-13C067FE03EF}</UniqueIdentifier>
+    <Filter Include="Excited\Core\Events">
+      <UniqueIdentifier>{27071228-9368-EF35-1CD6-35E8883626F5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Platform">
-      <UniqueIdentifier>{21CA02E5-0D2D-9289-B6B2-CA3FA2F45D0C}</UniqueIdentifier>
+    <Filter Include="Excited\ImGui">
+      <UniqueIdentifier>{D5AA0082-416B-7CB8-0AA6-C5357625C194}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Platform\Windows">
-      <UniqueIdentifier>{5B054582-4794-CE4B-F0B2-E246DC20DFF1}</UniqueIdentifier>
+    <Filter Include="Excited\Renderer">
+      <UniqueIdentifier>{711DF1DF-5D16-1032-8648-F5B672A0EF3D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\OpenGL">
+      <UniqueIdentifier>{1E7D2C1D-8A08-9AE1-9319-1DD6FF23F6E1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Excited.h">
-      <Filter>src</Filter>
+    <ClInclude Include="src\Excited.h" />
+    <ClInclude Include="src\Excited\Core\Application.h">
+      <Filter>Excited\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Excited\Application.h">
-      <Filter>src\Excited</Filter>
+    <ClInclude Include="src\Excited\Core\Assert.h">
+      <Filter>Excited\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Excited\Core.h">
-      <Filter>src\Excited</Filter>
+    <ClInclude Include="src\Excited\Core\Core.h">
+      <Filter>Excited\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Excited\EntryPoint.h">
-      <Filter>src\Excited</Filter>
+    <ClInclude Include="src\Excited\Core\Events\ApplicationEvent.h">
+      <Filter>Excited\Core\Events</Filter>
     </ClInclude>
-    <ClInclude Include="src\Excited\Events\ApplicationEvent.h">
-      <Filter>src\Excited\Events</Filter>
+    <ClInclude Include="src\Excited\Core\Events\Event.h">
+      <Filter>Excited\Core\Events</Filter>
     </ClInclude>
-    <ClInclude Include="src\Excited\Events\Event.h">
-      <Filter>src\Excited\Events</Filter>
+    <ClInclude Include="src\Excited\Core\Events\KeyEvent.h">
+      <Filter>Excited\Core\Events</Filter>
     </ClInclude>
-    <ClInclude Include="src\Excited\Events\KeyEvent.h">
-      <Filter>src\Excited\Events</Filter>
+    <ClInclude Include="src\Excited\Core\Events\MouseEvent.h">
+      <Filter>Excited\Core\Events</Filter>
     </ClInclude>
-    <ClInclude Include="src\Excited\Events\MouseEvent.h">
-      <Filter>src\Excited\Events</Filter>
+    <ClInclude Include="src\Excited\Core\Input.h">
+      <Filter>Excited\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Excited\Layer.h">
-      <Filter>src\Excited</Filter>
+    <ClInclude Include="src\Excited\Core\KeyCodes.h">
+      <Filter>Excited\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Excited\LayerStack.h">
-      <Filter>src\Excited</Filter>
+    <ClInclude Include="src\Excited\Core\Layer.h">
+      <Filter>Excited\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Excited\Log.h">
-      <Filter>src\Excited</Filter>
+    <ClInclude Include="src\Excited\Core\LayerStack.h">
+      <Filter>Excited\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Excited\Window.h">
-      <Filter>src\Excited</Filter>
+    <ClInclude Include="src\Excited\Core\Log.h">
+      <Filter>Excited\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
-      <Filter>src\Platform\Windows</Filter>
+    <ClInclude Include="src\Excited\Core\Window.h">
+      <Filter>Excited\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\excitedpch.h">
-      <Filter>src</Filter>
+    <ClInclude Include="src\Excited\ImGui\Colors.h">
+      <Filter>Excited\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="src\Excited\ImGui\ImGuiLayer.h" />
-    <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
-    <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRendererLoader.h" />
+    <ClInclude Include="src\Excited\ImGui\ImGuiLayer.h">
+      <Filter>Excited\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Excited\Renderer\RendererAPI.h">
+      <Filter>Excited\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLImGuiLayer.h">
+      <Filter>Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\excitedpch.h" />
+    <ClInclude Include="src\Excited\Core\EntryPoint.h">
+      <Filter>Excited</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Excited\Application.cpp">
-      <Filter>src\Excited</Filter>
+    <ClCompile Include="src\Excited\Core\Application.cpp">
+      <Filter>Excited\Core</Filter>
     </ClCompile>
-    <ClCompile Include="src\Excited\Layer.cpp">
-      <Filter>src\Excited</Filter>
+    <ClCompile Include="src\Excited\Core\Input.cpp">
+      <Filter>Excited\Core</Filter>
     </ClCompile>
-    <ClCompile Include="src\Excited\LayerStack.cpp">
-      <Filter>src\Excited</Filter>
+    <ClCompile Include="src\Excited\Core\Layer.cpp">
+      <Filter>Excited\Core</Filter>
     </ClCompile>
-    <ClCompile Include="src\Excited\Log.cpp">
-      <Filter>src\Excited</Filter>
+    <ClCompile Include="src\Excited\Core\LayerStack.cpp">
+      <Filter>Excited\Core</Filter>
     </ClCompile>
-    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
-      <Filter>src\Platform\Windows</Filter>
+    <ClCompile Include="src\Excited\Core\Log.cpp">
+      <Filter>Excited\Core</Filter>
     </ClCompile>
-    <ClCompile Include="src\excitedpch.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="src\Excited\Core\Window.cpp">
+      <Filter>Excited\Core</Filter>
     </ClCompile>
-    <ClCompile Include="src\Excited\ImGui\ImGuiLayer.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="LogOutputType.txt" />
+    <ClCompile Include="src\Excited\ImGui\Colors.cpp">
+      <Filter>Excited\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Excited\ImGui\ImGuiBuild.cpp">
+      <Filter>Excited\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Excited\ImGui\ImGuiLayer.cpp">
+      <Filter>Excited\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLImGuiLayer.cpp">
+      <Filter>Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\excitedpch.cpp" />
   </ItemGroup>
 </Project>

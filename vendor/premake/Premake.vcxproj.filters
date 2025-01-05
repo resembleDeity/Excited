@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="..">
+      <UniqueIdentifier>{61705900-4DFC-870B-B6AA-880BA255880B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\Excited">
+      <UniqueIdentifier>{B6CA9E1C-A282-E069-0B8A-B9C5F7607B5A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\Excited\vendor">
+      <UniqueIdentifier>{53783824-BF8E-36BA-0806-C2DB745B0742}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\Excited\vendor\GLFW">
+      <UniqueIdentifier>{725F5A37-5E59-8389-47C6-199A335FE9F5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\Excited\vendor\Glad">
+      <UniqueIdentifier>{1AEB5A37-06E5-8389-EF51-1A9ADBEAE9F5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\Excited\vendor\imgui">
+      <UniqueIdentifier>{FD372025-696F-68BC-7279-CCDFDE2F8FB5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\Excitedly">
+      <UniqueIdentifier>{9B5E7CBF-87C1-0B64-3047-441A1C89D7E6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Excited\premake5.lua">
+      <Filter>..\Excited</Filter>
+    </None>
+    <None Include="..\..\Excited\vendor\GLFW\premake5.lua">
+      <Filter>..\Excited\vendor\GLFW</Filter>
+    </None>
+    <None Include="..\..\Excited\vendor\Glad\premake5.lua">
+      <Filter>..\Excited\vendor\Glad</Filter>
+    </None>
+    <None Include="..\..\Excited\vendor\imgui\premake5.lua">
+      <Filter>..\Excited\vendor\imgui</Filter>
+    </None>
+    <None Include="..\..\Excitedly\premake5.lua">
+      <Filter>..\Excitedly</Filter>
+    </None>
+    <None Include="..\..\premake5.lua">
+      <Filter>..</Filter>
+    </None>
+    <None Include="premake5.lua" />
+  </ItemGroup>
+</Project>

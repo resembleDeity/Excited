@@ -2,24 +2,22 @@
 
 #pragma once
 
-#include "Excited/Layer.h"
+#include "Excited/Core/Layer.h"
 
 namespace Excited
 {
-	class FImGuiLayer : public ILayer
+	class IImGuiLayer : public ILayer
 	{
 	public:
 
-		FImGuiLayer();
-		~FImGuiLayer();
+		virtual void Begin() = 0;
+		virtual void End() = 0;
 
-		virtual void OnAttach() override;
-		virtual void OnDetach() override;
-		virtual void OnUpdate() override;
-		virtual void OnEvent(IEvent& InEvent) override;
+		void SetDarkThemeColors();
+		void SetDarkThemeV2Colors();
 
-	private:
+		void AllowInputEvents(bool InbAllowEvents);
 
-		float Time = 0.0f;
+		static IImGuiLayer* CreateImGuiLayer();
 	};
 }

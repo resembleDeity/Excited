@@ -3,6 +3,9 @@
 #pragma once
 
 #include "Event.h"
+#include "Excited/Core/KeyCodes.h"
+
+#include <sstream>
 
 namespace Excited
 {
@@ -29,9 +32,7 @@ namespace Excited
 
 	private:
 
-		float MouseX;
-
-		float MouseY;
+		float MouseX, MouseY;
 	};
 
 	class IMouseScrolledEvent : public IEvent
@@ -51,15 +52,13 @@ namespace Excited
 		virtual std::string ToString() const override
 		{
 			std::stringstream StrStream;
-			StrStream << "[Event] Mouse Scrolled: " << XOffset << ", " << YOffset;
+			StrStream << "[Event] Mouse Scrolled: " << GetXOffset() << ", " << GetYOffset();
 			return StrStream.str();
 		}
 
 	private:
 
-		float XOffset;
-
-		float YOffset;
+		float XOffset, YOffset;
 	};
 
 	class IMouseButtonEvent : public IEvent
@@ -68,15 +67,15 @@ namespace Excited
 
 		EVENT_CLASS_CATEGORY(EventCategoryMouse | EventCategoryInput)
 
-		inline int GetMouseButton() const { return Button; }
+		inline EMouseButton GetMouseButton() const { return Button; }
 
 	protected:
 
-		IMouseButtonEvent(int InButton)
+		IMouseButtonEvent(EMouseButton InButton)
 			: Button(InButton)
 		{ }
 
-		int Button;
+		EMouseButton Button;
 	};
 
 	class IMouseButtonPressedEvent : public IMouseButtonEvent
@@ -85,7 +84,7 @@ namespace Excited
 
 		EVENT_CLASS_TYPE(MouseButtonPressed)
 
-		IMouseButtonPressedEvent(int InButton)
+		IMouseButtonPressedEvent(EMouseButton InButton)
 			: IMouseButtonEvent(InButton)
 		{ }
 
@@ -103,7 +102,7 @@ namespace Excited
 
 		EVENT_CLASS_TYPE(MouseButtonReleased)
 
-		IMouseButtonReleasedEvent(int InButton)
+		IMouseButtonReleasedEvent(EMouseButton InButton)
 			: IMouseButtonEvent(InButton)
 		{ }
 
@@ -111,6 +110,24 @@ namespace Excited
 		{
 			std::stringstream StrStream;
 			StrStream << "[Event] Mouse Button Released: " << Button;
+			return StrStream.str();
+		}
+	};
+
+	class IMouseButtonDownEvent : public IMouseButtonEvent
+	{
+	public:
+
+		EVENT_CLASS_TYPE(MouseButtonDown)
+
+		IMouseButtonDownEvent(EMouseButton InButton)
+			: IMouseButtonEvent(InButton)
+		{ }
+
+		virtual std::string ToString() const override
+		{
+			std::stringstream StrStream;
+			StrStream << "[Event] Mouse Button Down: " << Button;
 			return StrStream.str();
 		}
 	};

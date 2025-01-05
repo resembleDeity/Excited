@@ -2,7 +2,9 @@
 
 #pragma once
 
-#include "Excited/Events/Event.h"
+#include "Excited/Core/Events/Event.h"
+
+#include <sstream>
 
 namespace Excited
 {
@@ -13,12 +15,12 @@ namespace Excited
 		EVENT_CLASS_TYPE(WindowResize)
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 
-		IWindowResizeEvent(unsigned int InWidth, unsigned int InHeight)
+		IWindowResizeEvent(uint32_t InWidth, uint32_t InHeight)
 			: Width(InWidth), Height(InHeight)
 		{ }
 
-		inline unsigned int GetWidth() const { return Width; }
-		inline unsigned int GetHeight() const { return Height; }
+		inline uint32_t GetWidth() const { return Width; }
+		inline uint32_t GetHeight() const { return Height; }
 
 		virtual std::string ToString() const override
 		{
@@ -29,9 +31,32 @@ namespace Excited
 
 	private:
 
-		unsigned int Width;
+		uint32_t Width, Height;
+	};
 
-		unsigned int Height;
+	class IWindowMinimizeEvent : public IEvent
+	{
+	public:
+
+		EVENT_CLASS_TYPE(WindowMinimize)
+		EVENT_CLASS_CATEGORY(EventCategoryApplication)
+
+		IWindowMinimizeEvent(bool InbMinimized)
+			: bMinimized(InbMinimized)
+		{ }
+
+		bool IsMinimized() const { return bMinimized; }
+
+		virtual std::string ToString() const override
+		{
+			std::stringstream StrStream;
+			StrStream << "[Event] Window Minimize";
+			return StrStream.str();
+		}
+
+	private:
+
+		bool bMinimized = false;
 	};
 
 	class IWindowCloseEvent : public IEvent
@@ -61,6 +86,13 @@ namespace Excited
 
 		IAppTickEvent()
 		{ }
+
+		virtual std::string ToString() const override
+		{
+			std::stringstream StrStream;
+			StrStream << "[Event] Application Tick";
+			return StrStream.str();
+		}
 	};
 
 	class IAppUpdateEvent : public IEvent
@@ -72,6 +104,13 @@ namespace Excited
 
 		IAppUpdateEvent()
 		{ }
+
+		virtual std::string ToString() const override
+		{
+			std::stringstream StrStream;
+			StrStream << "[Event] Application Update";
+			return StrStream.str();
+		}
 	};
 
 	class IAppRenderEvent : public IEvent
@@ -83,5 +122,12 @@ namespace Excited
 
 		IAppRenderEvent()
 		{ }
+
+		virtual std::string ToString() const override
+		{
+			std::stringstream StrStream;
+			StrStream << "[Event] Application Render";
+			return StrStream.str();
+		}
 	};
 }

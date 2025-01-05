@@ -6,21 +6,15 @@
 namespace Excited
 {
 	FLayerStack::FLayerStack()
-	{
-		LayerInsert = Layers.begin();
-	}
+	{ }
 
 	FLayerStack::~FLayerStack()
-	{
-		for (ILayer* Layer : Layers)
-		{
-			delete Layer;
-		}
-	}
+	{ }
 
 	void FLayerStack::PushLayer(ILayer* InLayer)
 	{
-		LayerInsert = Layers.emplace(LayerInsert, InLayer);
+		Layers.emplace(Layers.begin() + LayerInsertIndex, InLayer);
+		LayerInsertIndex++;
 	}
 
 	void FLayerStack::PushOverlay(ILayer* InOverlay)
@@ -34,7 +28,7 @@ namespace Excited
 		if (It != Layers.end())
 		{
 			Layers.erase(It);
-			LayerInsert--;
+			LayerInsertIndex--;
 		}
 	}
 
