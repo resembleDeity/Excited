@@ -11,6 +11,9 @@ workspace "Excited"
 
 	flags { "MultiProcessorCompile" }
 
+	defines { "EXCITED_LIB" }
+	-- defines { "EXCITED_DLL" }
+
 OutputDir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 group "Dependencies"

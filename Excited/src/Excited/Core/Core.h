@@ -9,6 +9,20 @@
 	#error Unknown platform.
 #endif
 
+#ifdef EXCITED_PLATFORM_WINDOWS
+	#ifdef EXCITED_LIB
+		#define EXCITED_API
+	#else
+		#ifdef EXCITED_DLL
+			#ifdef EXCITED_BUILD_DLL
+				#define EXCITED_API __declspec(dllexport)
+			#else
+				#define EXCITED_API __declspec(dllimport)
+			#endif
+		#endif
+	#endif
+#endif
+
 #if defined(__GNUC__)
 	#if defined(__clang__)
 		#define EXCITED_COMPILER_CLANG

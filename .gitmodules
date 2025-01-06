@@ -7,3 +7,6 @@
 [submodule "Excited/vendor/imgui"]
 	path = Excited/vendor/imgui
 	url = https://github.com/resembleDeity/imgui
+[submodule "Excited/vendor/glm"]
+	path = Excited/vendor/glm
+	url = git@github.com:resembleDeity/glm.git

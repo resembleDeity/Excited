@@ -1,5 +1,6 @@
 project "Excited"
 	kind "StaticLib"
+	-- kind "SharedLib"
 	language "C++"
 	cppdialect "C++17"
 	staticruntime "Off"
@@ -20,7 +21,12 @@ project "Excited"
 		"vendor/glm/glm/**.inl",
 	}
 
-	defines { "_CRT_SECURE_NO_WARNINGS", "GLFW_INCLUDE_NONE" }
+	defines 
+	{ 
+		"_CRT_SECURE_NO_WARNINGS", 
+		"GLFW_INCLUDE_NONE",
+		"EXCITED_BUILD_DLL",
+	}
 
 	includedirs
 	{
@@ -32,6 +38,7 @@ project "Excited"
 		"%{IncludeDir.ImGui}",
 		"%{IncludeDir.glm}",
 		"%{IncludeDir.stb_image}",
+		"%{IncludeDir.VulkanSDK}",
 	}
 
 	links
