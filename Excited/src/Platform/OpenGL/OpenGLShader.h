@@ -12,6 +12,7 @@ namespace Excited
 
 		FOpenGLShader() = default;
 		FOpenGLShader(const std::string& InFilePath);
+		FOpenGLShader(const std::string& InName, const std::string& InVertexSrc, const std::string& InFragmentSrc);
 		virtual ~FOpenGLShader();
 
 		virtual void Bind() const override;

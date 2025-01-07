@@ -45,6 +45,8 @@ namespace Excited
 		uint32_t Offset;
 		bool bNormalized;
 
+		FVertexBufferElement() = default;
+
 		FVertexBufferElement(EShaderDataType InType, const std::string& InName, bool InbNormalized = false)
 			: Name(InName)
 			, Type(InType), Size(ShaderDataTypeToSize(InType)), Offset(0)
@@ -76,6 +78,9 @@ namespace Excited
 	class FVertexBufferLayout
 	{
 	public:
+
+		FVertexBufferLayout()
+		{ }
 
 		FVertexBufferLayout(const std::initializer_list<FVertexBufferElement>& InElements)
 			: Elements(InElements)
@@ -127,8 +132,11 @@ namespace Excited
 		virtual void SetData(void* InBuffer, uint64_t InSize, uint64_t InOffset) = 0;
 		virtual void SetDataRuntime(void* InBuffer, uint64_t InSize, uint64_t InOffset) = 0;
 
-		virtual uint32_t GetSize() const = 0;
+		virtual uint64_t GetSize() const = 0;
 		virtual FRendererID GetRendererID() const = 0;
+
+		virtual const FVertexBufferLayout& GetLayout() const = 0;
+		virtual void SetLayout(const FVertexBufferLayout& InLayout) = 0;
 
 		static TRef<IVertexBuffer> CreateBuffer(void* InData, uint64_t InSize, EVertexBufferUsage InUsage = EVertexBufferUsage::Static);
 		static TRef<IVertexBuffer> CreateBuffer(uint64_t InSize, EVertexBufferUsage InUsage = EVertexBufferUsage::Dynamic);

@@ -5,8 +5,6 @@
 
 namespace Excited
 {
-	ERendererAPIType IRendererAPI::CurrentRendererAPI = ERendererAPIType::OpenGL;
-
 	void IRendererAPI::SetCurrentAPI(ERendererAPIType InAPI)
 	{
 		CurrentRendererAPI = InAPI;

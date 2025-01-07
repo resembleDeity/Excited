@@ -21,11 +21,10 @@ project "Excited"
 		"vendor/glm/glm/**.inl",
 	}
 
-	defines 
-	{ 
-		"_CRT_SECURE_NO_WARNINGS", 
+	defines
+	{
+		"_CRT_SECURE_NO_WARNINGS",
 		"GLFW_INCLUDE_NONE",
-		"EXCITED_BUILD_DLL",
 	}
 
 	includedirs
@@ -52,7 +51,7 @@ project "Excited"
 	filter "system:windows"
 		systemversion "latest"
 
-		defines { "EXCITED_PLATFORM_WINDOWS" }
+		defines { "EXCITED_PLATFORM_WINDOWS", "EXCITED_BUILD_DLL" }
 
 		links
 		{

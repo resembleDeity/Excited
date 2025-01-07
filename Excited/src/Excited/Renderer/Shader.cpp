@@ -27,6 +27,24 @@ namespace Excited
 		return Result;
 	}
 
+	TRef<IShader> IShader::CreateShader(const std::string& InName, const std::string& InVertexSrc, const std::string& InFragmentSrc)
+	{
+		TRef<IShader> Result = nullptr;
+
+		switch (IRendererAPI::GetCurrentAPI())
+		{
+			case ERendererAPIType::None:
+				return nullptr;
+			case ERendererAPIType::OpenGL:
+				Result = CreateRef<FOpenGLShader>(InName, InVertexSrc, InFragmentSrc);
+				break;
+			case ERendererAPIType::Vulkan:
+				return nullptr;
+		}
+
+		return Result;
+	}
+
 	UShaderLibrary::UShaderLibrary()
 	{ }
 
@@ -36,18 +54,37 @@ namespace Excited
 	void UShaderLibrary::Add(const TRef<IShader>& InShader)
 	{
 		auto& Name = InShader->GetName();
-		EXCITED_CORE_ASSERT(Shaders.find(Name) == Shaders.end(), "[Shader Library] Shader already exits!");
-		Shaders[Name] = InShader;
+		Add(Name, InShader);
 	}
 
-	void UShaderLibrary::Load(std::string_view InName, const std::string& InPath)
+	void UShaderLibrary::Add(std::string_view InName, const TRef<IShader>& InShader)
 	{
-		EXCITED_CORE_ASSERT(Shaders.find(std::string(InName)) == Shaders.end(), "[Shader Library] Shader not find!");
-		Shaders[std::string(InName)] = IShader::CreateShader(InPath);
+		EXCITED_CORE_ASSERT(!Exists(InName), "[Shader Library] Shader already exists!");
+		Shaders[std::string(InName)] = InShader;
 	}
 
-	const TRef<IShader>& UShaderLibrary::Get(const std::string& InName) const
+	TRef<IShader> UShaderLibrary::Load(const std::string& InPath)
 	{
+		auto Shader = IShader::CreateShader(InPath);
+		Add(Shader);
+		return Shader;
+	}
 
+	TRef<IShader> UShaderLibrary::Load(std::string_view InName, const std::string& InPath)
+	{
+		auto Shader = IShader::CreateShader(InPath);
+		Add(InName, Shader);
+		return Shader;
+	}
+
+	TRef<IShader>& UShaderLibrary::Get(std::string_view InName)
+	{
+		EXCITED_CORE_ASSERT(Exists(InName), "[Shader Library] Shader not found!");
+		return Shaders[std::string(InName)];
+	}
+
+	bool UShaderLibrary::Exists(std::string_view InName) const
+	{
+		return Shaders.find(std::string(InName)) != Shaders.end();
 	}
 }

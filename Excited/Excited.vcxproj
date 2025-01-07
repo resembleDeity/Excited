@@ -164,6 +164,30 @@
     <ClInclude Include="src\Excited\Core\Window.h" />
     <ClInclude Include="src\Excited\ImGui\Colors.h" />
     <ClInclude Include="src\Excited\ImGui\ImGuiLayer.h" />
+    <ClInclude Include="src\Excited\Math\Math.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\Excited\Math\MathFwd.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\Excited\Math\Point.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\Excited\Math\Vector.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\Excited\Math\Vector2D.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\Excited\Math\Vector4.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="src\Excited\Renderer\IndexBuffer.h" />
     <ClInclude Include="src\Excited\Renderer\RenderCommand.h" />
     <ClInclude Include="src\Excited\Renderer\Renderer.h" />
@@ -181,6 +205,10 @@
     <ClInclude Include="src\Platform\Vulkan\VulkanImGuiLayer.h" />
     <ClInclude Include="src\Platform\Vulkan\VulkanSwapChain.h" />
     <ClInclude Include="src\excitedpch.h" />
+    <ClInclude Include="src\Platform\Vulkan\VulkanVertexBuffer.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="vendor\glm\glm\common.hpp" />
     <ClInclude Include="vendor\glm\glm\detail\_features.hpp" />
     <ClInclude Include="vendor\glm\glm\detail\_fixes.hpp" />
@@ -614,7 +642,15 @@
     <ClCompile Include="src\Excited\Renderer\Shader.cpp" />
     <ClCompile Include="src\Excited\Renderer\VertexBuffer.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLImGuiLayer.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLVertexBuffer.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="src\Platform\Vulkan\VulkanImGuiLayer.cpp" />
     <ClCompile Include="src\excitedpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>

@@ -1404,6 +1404,13 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
+    <ClInclude Include="src\Excited\Math\Math.h" />
+    <ClInclude Include="src\Excited\Math\MathFwd.h" />
+    <ClInclude Include="src\Excited\Math\Vector.h" />
+    <ClInclude Include="src\Excited\Math\Point.h" />
+    <ClInclude Include="src\Excited\Math\Vector2D.h" />
+    <ClInclude Include="src\Excited\Math\Vector4.h" />
+    <ClInclude Include="src\Platform\Vulkan\VulkanVertexBuffer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Excited\Core\Application.cpp">
@@ -1457,5 +1464,7 @@
     <ClCompile Include="src\excitedpch.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLVertexBuffer.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp" />
   </ItemGroup>
 </Project>

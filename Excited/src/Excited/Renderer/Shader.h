@@ -39,6 +39,7 @@ namespace Excited
 		virtual const std::string& GetName() const = 0;
 
 		static TRef<IShader> CreateShader(const std::string& InFilePath);
+		static TRef<IShader> CreateShader(const std::string& InName, const std::string& InVertexSrc, const std::string& InFragmentSrc);
 
 		static constexpr const char* GetShaderDirectoryPath()
 		{
@@ -54,13 +55,19 @@ namespace Excited
 		~UShaderLibrary();
 
 		void Add(const TRef<IShader>& InShader);
-		void Load(std::string_view InName, const std::string& InPath);
+		void Add(std::string_view InName, const TRef<IShader>& InShader);
+
+		TRef<IShader> Load(const std::string& InPath);
+		TRef<IShader> Load(std::string_view InName, const std::string& InPath);
 	
-		const TRef<IShader>& Get(const std::string& InName) const;
+		TRef<IShader>& Get(std::string_view InName);
+
 		std::unordered_map<std::string, TRef<IShader>>& GetShaders() { return Shaders; }
 		const std::unordered_map<std::string, TRef<IShader>>& GetShaders() const { return Shaders; }
 
 		size_t GetSize() const { return Shaders.size(); }
+
+		bool Exists(std::string_view InName) const;
 
 	private:
 

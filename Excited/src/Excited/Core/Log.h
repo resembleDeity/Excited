@@ -29,11 +29,11 @@ namespace Excited
 #define EXCITED_CORE_INFO(...)		::Excited::FLog::GetCoreLogger()->info(__VA_ARGS__)
 #define EXCITED_CORE_WARN(...)		::Excited::FLog::GetCoreLogger()->warn(__VA_ARGS__)
 #define EXCITED_CORE_ERROR(...)		::Excited::FLog::GetCoreLogger()->error(__VA_ARGS__)
-#define EXCITED_CORE_FATAL(...)		::Excited::FLog::GetCoreLogger()->fatal(__VA_ARGS__)
+#define EXCITED_CORE_CRITICAL(...)	::Excited::FLog::GetCoreLogger()->critical(__VA_ARGS__)
 
 // Client Log Macros
 #define EXCITED_TRACE(...)			::Excited::FLog::GetClientLogger()->trace(__VA_ARGS__)
 #define EXCITED_INFO(...)			::Excited::FLog::GetClientLogger()->info(__VA_ARGS__)
 #define EXCITED_WARN(...)			::Excited::FLog::GetClientLogger()->warn(__VA_ARGS__)
 #define EXCITED_ERROR(...)			::Excited::FLog::GetClientLogger()->error(__VA_ARGS__)
-#define EXCITED_FATAL(...)			::Excited::FLog::GetClientLogger()->fatal(__VA_ARGS__)
+#define EXCITED_CRITICAL(...)		::Excited::FLog::GetClientLogger()->critical(__VA_ARGS__)
