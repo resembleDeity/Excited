@@ -16,6 +16,9 @@
     <Filter Include="src\Excited\ImGui">
       <UniqueIdentifier>{2C2036F9-9836-348F-E1AD-BFB04D030517}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Excited\Math">
+      <UniqueIdentifier>{9BB741D1-87B0-6023-B0E2-45A89C3A402F}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Excited\Renderer">
       <UniqueIdentifier>{68275E47-54B6-E710-FDD4-FB0BE942F8B6}</UniqueIdentifier>
     </Filter>
@@ -102,6 +105,24 @@
     <ClInclude Include="src\Excited\ImGui\ImGuiLayer.h">
       <Filter>src\Excited\ImGui</Filter>
     </ClInclude>
+    <ClInclude Include="src\Excited\Math\Math.h">
+      <Filter>src\Excited\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Excited\Math\MathFwd.h">
+      <Filter>src\Excited\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Excited\Math\Point.h">
+      <Filter>src\Excited\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Excited\Math\Vector.h">
+      <Filter>src\Excited\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Excited\Math\Vector2D.h">
+      <Filter>src\Excited\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Excited\Math\Vector4.h">
+      <Filter>src\Excited\Math</Filter>
+    </ClInclude>
     <ClInclude Include="src\Excited\Renderer\IndexBuffer.h">
       <Filter>src\Excited\Renderer</Filter>
     </ClInclude>
@@ -148,6 +169,9 @@
       <Filter>src\Platform\Vulkan</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\Vulkan\VulkanSwapChain.h">
+      <Filter>src\Platform\Vulkan</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\Vulkan\VulkanVertexBuffer.h">
       <Filter>src\Platform\Vulkan</Filter>
     </ClInclude>
     <ClInclude Include="src\excitedpch.h">
@@ -1404,13 +1428,6 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="src\Excited\Math\Math.h" />
-    <ClInclude Include="src\Excited\Math\MathFwd.h" />
-    <ClInclude Include="src\Excited\Math\Vector.h" />
-    <ClInclude Include="src\Excited\Math\Point.h" />
-    <ClInclude Include="src\Excited\Math\Vector2D.h" />
-    <ClInclude Include="src\Excited\Math\Vector4.h" />
-    <ClInclude Include="src\Platform\Vulkan\VulkanVertexBuffer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Excited\Core\Application.cpp">
@@ -1455,7 +1472,13 @@
     <ClCompile Include="src\Platform\OpenGL\OpenGLImGuiLayer.cpp">
       <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLVertexBuffer.cpp">
       <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\Vulkan\VulkanImGuiLayer.cpp">
@@ -1464,7 +1487,5 @@
     <ClCompile Include="src\excitedpch.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Platform\OpenGL\OpenGLVertexBuffer.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp" />
   </ItemGroup>
 </Project>

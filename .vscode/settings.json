@@ -1,0 +1,21 @@
+{
+    "files.associations": {
+        "chrono": "cpp",
+        "xlocale": "cpp",
+        "algorithm": "cpp",
+        "format": "cpp",
+        "xiosbase": "cpp",
+        "xutility": "cpp",
+        "ostream": "cpp",
+        "bitset": "cpp",
+        "iterator": "cpp",
+        "xhash": "cpp",
+        "xtree": "cpp",
+        "array": "cpp",
+        "initializer_list": "cpp",
+        "list": "cpp",
+        "utility": "cpp",
+        "vector": "cpp",
+        "xstring": "cpp"
+    }
+}
