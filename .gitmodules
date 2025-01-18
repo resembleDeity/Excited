@@ -4,12 +4,12 @@
 [submodule "Excited/vendor/imgui"]
 	path = Excited/vendor/imgui
 	url = https://github.com/resembleDeity/imgui.git
-[submodule "Excited/vendor/glfw"]
-	path = Excited/vendor/glfw
-	url = https://github.com/resembleDeity/glfw.git
 [submodule "Excited/vendor/glm"]
 	path = Excited/vendor/glm
 	url = https://github.com/resembleDeity/glm.git
 [submodule "Excited/vendor/spdlog"]
 	path = Excited/vendor/spdlog
 	url = https://github.com/resembleDeity/spdlog.git
+[submodule "Excited/vendor/glfw"]
+	path = Excited/vendor/glfw
+	url = https://github.com/resembleDeity/glfw.git

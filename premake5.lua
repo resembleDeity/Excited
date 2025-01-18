@@ -23,6 +23,7 @@ group "Dependencies"
 	include "Excited/vendor/imgui"
 group ""
 
-
-include "Excited"
-include "Excitedly"
+group "Core"
+	include "Excited"
+	include "Excitedly"
+group ""
