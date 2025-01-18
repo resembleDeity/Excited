@@ -1,9 +1,0 @@
-IWindow => [Window]
-
-IEvent => [Event]
-
-Assert => [Assert]
-
-Init => [Initialized]
-
-GLFW => [GLFW]
