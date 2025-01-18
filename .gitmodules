@@ -1,0 +1,12 @@
+[submodule "Excited/vendor/yaml-cpp"]
+	path = Excited/vendor/yaml-cpp
+	url = https://github.com/resembleDeity/yaml-cpp.git
+[submodule "Excited/vendor/imgui"]
+	path = Excited/vendor/imgui
+	url = https://github.com/resembleDeity/imgui.git
+[submodule "Excited/vendor/glfw"]
+	path = Excited/vendor/glfw
+	url = https://github.com/resembleDeity/glfw.git
+[submodule "Excited/vendor/glm"]
+	path = Excited/vendor/glm
+	url = https://github.com/resembleDeity/glm.git
